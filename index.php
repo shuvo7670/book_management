@@ -1,3 +1,8 @@
+
+<?php 
+
+?>
+
 <div class="formbold-main-wrapper">
   <div class="formbold-form-wrapper">
     <form action="add-book.php" method="POST">
@@ -32,6 +37,36 @@
             type="text"
             name="publisher"
             id="publisher"
+            class="formbold-form-input"
+            required
+          />
+        </div>
+        <div>
+          <label for="email" class="formbold-form-label"> Email </label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            class="formbold-form-input"
+            required
+          />
+        </div>
+        <div>
+          <label for="phone" class="formbold-form-label"> Phone </label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            class="formbold-form-input"
+            required
+          />
+        </div>
+        <div>
+          <label for="website" class="formbold-form-label"> Website </label>
+          <input
+            type="text"
+            name="website"
+            id="website"
             class="formbold-form-input"
             required
           />
