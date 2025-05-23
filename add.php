@@ -32,7 +32,7 @@ if( $is_connect ) {
     $sql = "INSERT INTO `books`(`book_name`, `author`, `isbn`, `publisher`, `publish_date`, `category`, `language`, `pages`, `description`, `cover_image_url`) VALUES ('$book_name','$author','$isbn','$publisher','$publish_date','$category','$language','$pages','$description','$cover_image_url')";
     if( $connection->query($sql) === true ) {
         echo "New book added";
-        echo "<a href='index.php' class='btn btn-primary'>Home</a>";
+        header("Location: index.php");
     }else {
         print_r( $connection->error );
         die();
