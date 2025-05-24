@@ -6,7 +6,8 @@
         include_once './includes/head.php'
     ?>
     <?php
-        $sql = "SELECT * FROM `books` WHERE status != 0";
+        // $sql = "SELECT * FROM `books` WHERE status != 0";
+        $sql    = "SELECT books.*, categories.name AS category_name FROM `books` JOIN categories ON books.category = categories.id  WHERE status != 0";
         $result = mysqli_query($connection, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     ?>
@@ -17,6 +18,7 @@
       <h1 class="h3">📚 Book List</h1>
       <div class="action-btn">
         <a href="create.php" class="btn btn-primary">+ Add New Book</a>
+        <a href="add_category.php" class="btn btn-danger">Add Category</a>
         <a href="trash.php" class="btn btn-danger"> Trash</a>
         <a href="index.php" class="btn btn-primary"> All Books</a>
       </div>
@@ -43,7 +45,7 @@
                             <td><?php echo $row['book_name'] ?></td>
                             <td><?php echo $row['author'] ?></td>
                             <td><?php echo $row['isbn'] ?></td>
-                            <td><?php echo $row['category'] ?></td>
+                            <td><?php echo $row['category_name'] ?></td>
                             <td>
                                 <a href="view.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-info">View</a>
                                 <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-warning">Edit</a>

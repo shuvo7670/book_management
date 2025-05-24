@@ -12,6 +12,11 @@
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
         $book = $data[0];
     ?>
+    <?php
+        $sql    = "SELECT * FROM `categories`";
+        $result = mysqli_query($connection, $sql);
+        $categories   = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    ?>
 </head>
 <body class="bg-light">
   <div class="container py-5">
@@ -41,7 +46,11 @@
         </div>
         <div class="col-md-6">
             <label class="form-label">Category</label>
-            <input name="category" value="<?php echo $book['category'] ?>" type="text" class="form-control">
+            <select name="category" class="form-select">
+                <?php foreach(  $categories as $category ) : ?>
+                    <option <?php echo $category['id'] == $book['category'] ? 'selected' : '' ?> value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
+                <?php endforeach ?>
+            </select>
         </div>
         <div class="col-md-6">
             <label class="form-label">Language</label>
